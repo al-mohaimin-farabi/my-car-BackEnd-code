@@ -1,0 +1,21 @@
+{
+  "name": "heroku-test",
+  "version": "1.0.0",
+  "description": "![Image 0](https://i.ibb.co/SVp3ztw/screenshot-localhost-3000-2021-11-15-23-23-54.png)",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "start-dev": "nodemon index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^10.0.0",
+    "express": "^4.17.1",
+    "mongodb": "^4.1.4",
+    "monodb": "^1.5.1",
+    "nodemon": "^2.0.15"
+  }
+}
