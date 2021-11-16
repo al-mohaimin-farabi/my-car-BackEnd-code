@@ -1,7 +1,7 @@
 const express = require("express");
 const app = express();
 const cors = require("cors");
-const admin = require("firebase-admin");
+// const admin = require("firebase-admin");
 require("dotenv").config();
 const { MongoClient } = require("mongodb");
 const ObjectId = require("mongodb").ObjectId;
@@ -17,22 +17,22 @@ const client = new MongoClient(uri, {
   useUnifiedTopology: true,
 });
 
-const serviceAccount = JSON.parse(process.env.FIREBASE_SERVICE_ACCOUNT);
-admin.initializeApp({
-  credential: admin.credential.cert(serviceAccount),
-});
+// const serviceAccount = JSON.parse(process.env.FIREBASE_SERVICE_ACCOUNT);
+// admin.initializeApp({
+//   credential: admin.credential.cert(serviceAccount),
+// });
 
-async function verifyToken(req, res, next) {
-  console.log("in vergy token");
-  if (req.headers?.authorization?.startsWith("Bearer ")) {
-    const token = req.headers.authorization.split(" ")[1];
-    try {
-      const decodedUser = await admin.auth().verifyIdToken(token);
-      req.decodedEmail = decodedUser.email;
-    } catch {}
-  }
-  next();
-}
+// async function verifyToken(req, res, next) {
+//   console.log("in vergy token");
+//   if (req.headers?.authorization?.startsWith("Bearer ")) {
+//     const token = req.headers.authorization.split(" ")[1];
+//     try {
+//       const decodedUser = await admin.auth().verifyIdToken(token);
+//       req.decodedEmail = decodedUser.email;
+//     } catch {}
+//   }
+//   next();
+// }
 
 async function run() {
   try {
@@ -68,7 +68,7 @@ async function run() {
     app.get("/orders", async (req, res) => {
       const email = req.query.email;
       let query;
-      console.log(email);
+      // console.log(email);
       if (email) {
         query = { Email: email };
       } else {
